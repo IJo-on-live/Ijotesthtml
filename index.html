@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mon site web</title>
+</head>
+<body>
+    <header>
+        <h1>Titre de mon site</h1>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#">Accueil</a></li>
+            <li><a href="#">À propos</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <section>
+            <h2>Section 1</h2>
+            <p>Ceci est le contenu de la section 1.</p>
+        </section>
+        
+        <section>
+            <h2>Section 2</h2>
+            <p>Ceci est le contenu de la section 2.</p>
+        </section>
+        
+        <section>
+            <h2>Contact</h2>
+            <form id="contact-form">
+                <div>
+                    <label for="prenom">Prénom :</label>
+                    <input type="text" id="prenom" name="prenom">
+                </div>
+                <div>
+                    <label for="nom">Nom :</label>
+                    <input type="text" id="nom" name="nom">
+                </div>
+                <div>
+                    <label for="ville">Ville :</label>
+                    <input type="text" id="ville" name="ville">
+                </div>
+                <button type="submit">Envoyer</button>
+            </form>
+        </section>
+    </main>
+
+    <script>
+        const form = document.getElementById('contact-form');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Empêche l'envoi du formulaire par défaut
+
+            // Récupérer les valeurs des champs
+            const prenom = document.getElementById('prenom').value;
+            const nom = document.getElementById('nom').value;
+            const ville = document.getElementById('ville').value;
+
+            // Construire le corps de l'e-mail avec les informations
+            const emailBody = `Prénom : ${prenom}\nNom : ${nom}\nVille : ${ville}`;
+
+            // Envoyer l'e-mail (code serveur requis)
+            // Remplacez 'adresse_email' par l'adresse e-mail de destination
+            const emailTo = 'grossijorick@gmial.com';
+            const emailSubject = 'nouvelles infos';
+            const emailHref = `mailto:${emailTo}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+        });
+    </script>
+</body>
+</html>
